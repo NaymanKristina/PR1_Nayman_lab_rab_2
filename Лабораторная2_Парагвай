@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+ <head>    
+ <title> Добавление многогранника на карту.</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>  
+    <!--         Подключаем API карт 2.x
+         Параметры:
+           - load=package.full - полная сборка;
+        - lang=ru-RU - язык русский.     -->
+      <script src="http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"
+             type="text/javascript"></script>
+     <script type="text/javascript"> 
+        ymaps.ready(init);  
+        function init() { 
+            var myMap = new ymaps.Map('map', { 
+                center: [-25.30, -57.63], 
+                zoom: 10           
+ }),            
+                 
+ myPolygon = new ymaps.Polygon([[
+                    // Координаты вершин внешней границы многоугольника.
+			[-25.273087,-57.636324],
+			[-25.273600,-57.608600],
+			[-25.294145,-57.591021],
+			[-25.318324,-57.607947],
+			[-25.31738,-57.638645],
+			[-25.296325,-57.655598]
+                ]]);
+  
+            myMap.geoObjects.add(myPolygon)
+                 .add(myPolygon); 
+        }     </script> 
+</head>  
+<body> 
+<h2>Добавление многогранника на карту</h2>  
+<div id="map" style="width:600px;height:400px"></div> </body>  
+</html>  
+ 
